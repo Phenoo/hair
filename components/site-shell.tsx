@@ -437,7 +437,7 @@ function EmailPopup() {
         <p className="mt-3 max-w-lg text-sm leading-6 text-[var(--kds-muted)]">
           New wigs, restocks and appointment drops.
         </p>
-        <div className="mt-6 grid gap-3 sm:grid-cols-[1fr_1fr_1fr_auto]">
+        <div className="mt-6 grid gap-3 sm:grid-cols-1">
           <input className="kds-input" placeholder="First name" type="text" />
           <input className="kds-input" placeholder="Email" type="email" />
           <input className="kds-input" placeholder="Mobile (optional)" type="tel" />
