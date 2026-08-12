@@ -1,26 +1,188 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6efe7;
+  --foreground: #1d130e;
+  --kds-cream: #f6efe7;
+  --kds-soft-white: #f9f4ee;
+  --kds-beige: #e9dccd;
+  --kds-panel: #efe4d7;
+  --kds-panel-strong: #eadac8;
+  --kds-border: rgba(110, 83, 58, 0.16);
+  --kds-ink: #1d130e;
+  --kds-muted: #6d5746;
+  --kds-accent: #9a7753;
+  --kds-gold: #b5966f;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "SFMono-Regular", "Menlo", monospace;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Baskerville", serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0));
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  transition:
+    color 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    opacity 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+*::selection {
+  background: rgba(154, 119, 83, 0.18);
+}
+
+.font-display {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Baskerville", serif;
+}
+
+.kds-section {
+  padding-block: 5.5rem;
+}
+
+.kds-page-hero {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.62), transparent 32%),
+    linear-gradient(180deg, rgba(233, 220, 205, 0.6), rgba(246, 239, 231, 0.88));
+}
+
+.kds-panel-card {
+  border: 1px solid var(--kds-border);
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 2rem;
+  padding: 1.75rem;
+  box-shadow: 0 16px 40px rgba(36, 28, 20, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.kds-subtle-card {
+  border: 1px solid var(--kds-border);
+  background: rgba(255, 255, 255, 0.62);
+  border-radius: 1.75rem;
+}
+
+.kds-button-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  background: var(--kds-ink);
+  color: var(--kds-soft-white);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.5rem;
+}
+
+.kds-button-primary:hover {
+  background: #2e2017;
+}
+
+.kds-button-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.kds-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--kds-border);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--kds-ink);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.kds-button-secondary:hover {
+  border-color: rgba(110, 83, 58, 0.3);
+  background: white;
+}
+
+.kds-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(110, 83, 58, 0.16);
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--kds-ink);
+  backdrop-filter: blur(8px);
+}
+
+.kds-icon-button:hover {
+  background: white;
+}
+
+.kds-icon-count {
+  position: absolute;
+  top: -0.2rem;
+  right: -0.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 999px;
+  background: var(--kds-accent);
+  padding-inline: 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: white;
+}
+
+.kds-input {
+  width: 100%;
+  border-radius: 1.35rem;
+  border: 1px solid var(--kds-border);
+  background: rgba(255, 255, 255, 0.84);
+  padding: 1rem 1rem;
+  color: var(--kds-ink);
+  outline: none;
+}
+
+.kds-input:focus {
+  border-color: rgba(154, 119, 83, 0.5);
+  box-shadow: 0 0 0 4px rgba(154, 119, 83, 0.1);
+}
+
+.kds-slider {
+  width: 100%;
+  accent-color: var(--kds-accent);
+}
+
+@media (max-width: 768px) {
+  .kds-section {
+    padding-block: 4.5rem;
+  }
 }
